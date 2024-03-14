@@ -1,0 +1,20 @@
+// Ceci est votre fichier de schéma Prisma,
+// en savoir plus sur cela dans les docs : https://pris.ly/d/prisma-schema
+
+// Cherchez des moyens de ralentir vos requêtes, ou d'échelle facilement avec vos fonctions serverless ou edge ?
+// Essayez Prisma Accélérer : https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    Int    @id @default(autoincrement())
+  name  String
+  score Int @default(value: 0)
+}
